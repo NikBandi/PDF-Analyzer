@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Analyzer - Convert PDF to Audio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-pdf"></i> PDF Analyzer</h1>
+            <p>Convert your PDF pages into high-quality audio</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Upload PDF File</h3>
+                    <p>Drag & drop your PDF here or click to browse</p>
+                    <input type="file" id="pdfFile" accept=".pdf" style="display: none;">
+                    <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+                        <span id="fileStatus">No file selected</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="conversion-section" id="conversionSection" style="display: none;">
+                <h3>Select Page to Convert</h3>
+                <div class="current-file-info" id="currentFileInfo">
+                    <p><strong>Current PDF:</strong> <span id="currentFileName"></span></p>
+                </div>
+                <div class="page-selector">
+                    <label style="font-size: 17px" for="pageSelect">Page Number:</label>
+                    <select id="pageSelect">
+                        <option value="">Select a page...</option>
+                    </select>
+                </div>
+                <div class="button-group">
+                    <button class="convert-btn" id="convertBtn" disabled>
+                        <i class="fas fa-play"></i> Convert to Audio
+                    </button>
+                    <button class="summary-btn" id="summaryBtn" disabled>
+                        <i class="fas fa-file-text"></i> Generate Summary
+                    </button>
+                    <button class="new-file-btn" id="newFileBtn">
+                        <i class="fas fa-upload"></i> Upload New PDF
+                    </button>
+                </div>
+            </div>
+
+            <div class="summary-section" id="summarySection" style="display: none;">
+                <h3>PDF Summary</h3>
+                <div class="summary-content" id="summaryContent">
+                    <p>Click "Generate Summary" to create a summary of the current page.</p>
+                </div>
+                <div class="summary-loading" id="summaryLoading" style="display: none;">
+                    <span class="loading"></span> Generating summary...
+                </div>
+                <div class="summary-audio-section" id="summaryAudioSection" style="display: none;">
+                    <button class="summary-audio-btn" id="summaryAudioBtn">
+                        <i class="fas fa-volume-up"></i> Generate Summary Audio
+                    </button>
+                    <div class="player-controls" id="summaryAudioPlayer" style="display: none;">
+                        <audio id="summaryAudioElement" controls>
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="download-section" id="summaryDownloadSection" style="display: none;">
+                        <button class="download-summary-audio-btn" id="downloadSummaryAudioBtn">
+                            <i class="fas fa-download"></i> Download Summary Audio
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="audio-player" id="audioPlayer" style="display: none;">
+                <h3>Audio Player</h3>
+                <div class="player-controls">
+                    <audio id="audioElement" controls>
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="download-section">
+                    <button class="download-btn" id="downloadBtn">
+                        <i class="fas fa-download"></i> Download Audio
+                    </button>
+                </div>
+            </div>
+
+            <div class="status" id="status"></div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

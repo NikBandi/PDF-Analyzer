@@ -1,0 +1,2 @@
+=>  Add a loading animation when the audio is being processed               -----------> ?
+=>  Add a generate audio feature for the summarized text                    -----------> Done
