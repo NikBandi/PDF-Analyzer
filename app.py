@@ -11,7 +11,7 @@ import language_tool_python
 
 tool = language_tool_python.LanguageTool('en-US')
 
-model_name = "facebook/bart-large-cnn"
+model_name = "sshleifer/distilbart-cnn-12-6"
 
 use_cuda = torch.cuda.is_available()
 
