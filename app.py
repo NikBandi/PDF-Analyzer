@@ -7,9 +7,9 @@ import uuid
 from transformers import BartForConditionalGeneration, BartTokenizer
 import torch
 import re
-import language_tool_python
+#import language_tool_python
 
-tool = language_tool_python.LanguageTool('en-US')
+#tool = language_tool_python.LanguageTool('en-US')
 
 model_name = "sshleifer/distilbart-cnn-12-6"
 
